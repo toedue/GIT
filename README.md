@@ -1,10 +1,10 @@
 # GIT
 
-## Git is a VCS. (VCS means Version Control System).
+### Git is a VCS. (VCS means Version Control System).
 
-## A VCS is like a time machine for your work (your code).
+### A VCS is like a time machine for your work (your code).
 
-## Commit means you are saving a point in time.
+### Commit means you are saving a point in time.
 
 
 ## 1. What is Git? 
