@@ -12,11 +12,11 @@ Git is a tool that helps you keep track of all the changes you make to your work
 
 Think of it like this: Imagine you are writing a very long school paper. Instead of just one file, you save a new copy every time you finish a big part.
 
-File 1: The Intro (Finished on Monday)
+    File 1: The Intro (Finished on Monday)
 
-File 2: Intro + Main Body (Finished on Tuesday)
+    File 2: Intro + Main Body (Finished on Tuesday)
 
-File 3: Final Draft (Finished on Wednesday)
+    File 3: Final Draft (Finished on Wednesday)
 
 Git does this automatically and much better. It saves every change without making many copies on your computer.
 
@@ -30,19 +30,19 @@ A Commit is the action of saving your progress in Git. It's like taking a snapsh
 
 When you Commit, you are telling Git:
 
-"I'm happy with all the changes I made since the last save."
+    "I'm happy with all the changes I made since the last save."
 
-"Please record this moment so I can come back to it later."
+    "Please record this moment so I can come back to it later."
 
 
 ## Why Git Helps You
 Here are the notes for your text about Git, broken down into simple points:
 
-Track Changes: Git helps you see what changes you made to your code.
+    Track Changes: Git helps you see what changes you made to your code.
 
-Go Back in Time: You can easily return to an older, saved version of your work.
+    Go Back in Time: You can easily return to an older, saved version of your work.
 
-Teamwork: It lets many people work on the same project without making a big mess.
+    Teamwork: It lets many people work on the same project without making a big mess.
 
 
 ## 1. Tracking Changes 
@@ -83,9 +83,9 @@ GitHub is like a giant online filing cabinet or a social network for coders. It 
 
 Why use it?
 
-Backup: Your work is safe online if your computer breaks.
+    Backup: Your work is safe online if your computer breaks.
 
-Sharing: It gives you a web link so others can see and get your project.
+    Sharing: It gives you a web link so others can see and get your project.
 
 ## 3. Online Collaboration and Features 
 Because your project is on GitHub's website (the cloud), it is easy for teams to work together.
