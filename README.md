@@ -338,3 +338,41 @@ Staging is important because it gives you control over exactly what you want to 
 . You can use git add on those six files, leaving the other four unfinished ones in your Working Area.
 
 . When you commit, Git only saves what is in your Staging Area (the six finished files).
+
+
+
+# git commit
+
+. **git commit** is the command that makes a permanent save of your project's progress.
+
+. It takes everything in the Staging Area (what you prepared with git add) and locks it into history.
+
+. -m stands for "message".
+
+. The words inside the quotes (like "initial commit") are the explanation of what you changed in this save.
+
+
+### The Full Process to Save:
+    1. Stage (Select): git add . (Select all changes).
+    
+    2. Commit (Save): git commit -m "Your explanation" (Save the selected changes with a message).
+
+## 1. What does git commit do?
+This command is the final button press to create a snapshot (a copy) of your project at that moment in time.
+
+. Before commit: Your changes are temporary.
+
+. After commit: Your changes are permanently saved in the project's history (the .git folder). You can now safely "time-travel" back to this exact point if needed.
+
+## 2. What is the -m and the Message?
+Every save (commit) in Git needs a short note explaining what you did. This note is called the commit message.
+
+. The -m tells Git, "The next thing I type is the message."
+
+. Example message: "Initial commit"
+
+    . This specific message is used for the very first save to show that the project is just starting its history.
+
+. Example message: "Fixed bug on login page"
+
+    . This message tells future developers (and your future self!) exactly why you made that save.
