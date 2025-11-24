@@ -160,7 +160,7 @@ When you type git status, Git quickly looks at your entire project folder and ch
 
 ## What information does it give you?
 
-File Group || What it means || What Git says
-Untracked || These are new files that Git doesn't know about yet.|| """Untracked files:"""
-Modified,These are files you have changed since your last save (commit).,"""Changes not staged for commit:"""
-Staged,These are files you have chosen and marked as ready for the next save.,"""Changes to be committed:"""
+| File Group | What it means | What Git says |
+| Untracked | These are new files that Git doesn't know about yet.| """Untracked files:""" |
+| Modified | These are files you have changed since your last save (commit). | """Changes not staged for commit:""" |
+| Staged | These are files you have chosen and marked as ready for the next save.| """Changes to be committed:""" |
