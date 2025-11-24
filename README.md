@@ -380,8 +380,30 @@ Every save (commit) in Git needs a short note explaining what you did. This note
 
 # `.git` Folder 
 
-* **What is it?** It's a **hidden folder** that Git creates when you run `git init`.
+* It's a **hidden folder** that Git creates when you run `git init`.
 * **What it does:** It holds **everything** that makes your project a Git repository.
-* **Contents:** It contains all your project's **history**, all your **commits** (saves), all your **branches**, and all of Git's **settings**.
-* **Importance:** It's the **"time machine" storage**. If you delete this folder, your project files remain, but **all of the history is lost**.
+* It contains all your project's **history**, all your **commits** (saves), all your **branches**, and all of Git's **settings**.
+* It's the **"time machine" storage**. If you delete this folder, your project files remain, but **all of the history is lost**.
 * **Rule:** **Never** manually change or delete files inside the `.git` folder! You must let Git manage it.
+
+
+
+###  File States (Where is my file right now?)
+
+* **File State:** Describes **where** a file is located in the Git process (e.g., is it saved? is it being worked on?).
+
+### The Three Main States 
+
+| State | Simple Explanation | What it Means | Command to Get Here |
+| :--- | :--- | :--- | :--- |
+| 1. **Modified** | **You changed it, but Git doesn't know you want to save it yet.** | The file is different from the last time you committed. This is your "working" area. | (Editing the file) |
+| 2. **Staged** | **You prepared it for the next save.** | You told Git, "I want to save this file right now." It's in the temporary **Staging Area**. | `git add filename` or `git add .` |
+| 3. **Committed** | **It's permanently saved.** | The file is safely stored as a **snapshot** in the `.git` history. | `git commit` |
+
+### The Extra State
+
+* **Untracked:** This is a **brand-new file** that has never been committed or told to be ignored by Git. It's totally new to the project. You must `git add` it first.
+
+### How to Check the State
+
+* You use the **`git status`** command to see which of the three main states all of your files are in.
