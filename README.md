@@ -12,7 +12,7 @@ Thank you for the text! That's a very short and important piece of information.
 
 Here are the notes and the simple explanation you asked for.
 
-📝 Easy Notes
+
 Git is a VCS. (VCS means Version Control System).
 
 A VCS is like a time machine for your work (your code).
@@ -51,7 +51,7 @@ When you Commit, you are telling Git:
 
 ## Why Git Helps You
 
-📝 Easy Notes: Why Git Helps You
+## Why Git Helps You
 Here are the notes for your text about Git, broken down into simple points:
 
 Track Changes: Git helps you see what changes you made to your code.
@@ -60,7 +60,7 @@ Go Back in Time: You can easily return to an older, saved version of your work.
 
 Teamwork: It lets many people work on the same project without making a big mess.
 
-💬 Simple Explanation
+
 1. Tracking Changes 
 This means Git always remembers everything you do to your files.
 
