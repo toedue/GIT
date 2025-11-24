@@ -143,8 +143,8 @@ The repo holds everything needed for your project:
 
 
 # git status
-. git status is a Git command you type.
-When you type git status, Git quickly looks at your entire project folder and checks to see if anything has changed since the last time you made a commit (your last save).
+. **git status** is a Git command you type.
+When you type **git status**, Git quickly looks at your entire project folder and checks to see if anything has changed since the last time you made a commit (your last save).
 
 . It tells you the current state (status) of your project folder (repo).
 
@@ -165,3 +165,60 @@ When you type git status, Git quickly looks at your entire project folder and ch
 | Untracked | These are new files that Git doesn't know about yet.| """Untracked files:""" |
 | Modified | These are files you have changed since your last save (commit). | """Changes not staged for commit:""" |
 | Staged | These are files you have chosen and marked as ready for the next save.| """Changes to be committed:""" |
+
+
+## The Big Picture
+The **git status** command is your control center. If you run it and see the message: "nothing to commit, working tree clean," it means your local work is perfectly matched to your last saved version!
+
+
+# git config
+. **git config** is the command you use to change how Git works.
+1. What is Configuration?
+Configuration is just a fancy word for settings. When you use git config, you are simply telling Git your preferences and details.
+    . Think of it like: Opening the Settings menu on your phone or computer.
+. It lets you set your personal preferences and information.
+2. Why do I need to set my Name and Email?
+Every time you make a commit (a save point), Git records who did the work. It uses your set name and email address for this.
+    . This is important because when you share your project on GitHub, everyone can see who made which changes.
+. The most important things you set are your Name and Email address. (Git puts this info on every save/commit).
+
+|Level|Where it applies|The option you use|
+|----------|----------|----------|
+|Global|All your Git projects (on your computer).|--global|
+|Local|Only the project folder you are in right now.|Default (no option needed)|
+
+3. What does --global mean? 
+The --global part is very helpful because it tells Git, "Use this setting for every Git project I ever work on."
+    . If you don't use --global, the setting is only saved for the current project you are in. This is called local configuration.
+
+Common Examples
+
+    . Set your Name: git config --global user.name "Your Name"
+    . Set your Email: git config --global user.email "your.email@example.com"
+    . See all settings: git config --list
+
+
+# git init
+
+. **git init** is the first command you run in a new project folder.
+. It initializes (starts) the Git tracking system.
+. When you run it, it creates a hidden folder called **.git** inside your project folder.
+. This **.git** folder is the "time machine" storage—it holds all the history, versions, and configuration.
+. After **git init**, your folder becomes a local repository (a Git project).
+
+
+## 1. What does it do?
+The **git init** command is what turns a regular, boring folder on your computer into a special Git project folder (a local repository).
+    . Think of it like: Pressing the "Start Tracking" button for a project.
+
+## 2. The **.git** Folder (The Magic Box) 
+When you run **git init**, Git creates a small, hidden folder named .git. This is the most important part!
+    . This .git folder is where Git keeps all the necessary information to track changes—the entire history of your work is stored here.
+   . If you accidentally delete this .git folder, your project is still there, but Git will forget all the history you saved!
+
+### 3. How to use it:
+    1. Create a new folder for your project (e.g., named "MyWebsite").
+    2. Open your command line/terminal inside that folder.
+    3. Type git init.
+
+Result: Your project folder is now ready to use Git commands like git status, git add, and git commit.
