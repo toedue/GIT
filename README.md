@@ -201,19 +201,26 @@ Common Examples
 # git init
 
 . **git init** is the first command you run in a new project folder.
+
 . It initializes (starts) the Git tracking system.
+
 . When you run it, it creates a hidden folder called **.git** inside your project folder.
+
 . This **.git** folder is the "time machine" storage—it holds all the history, versions, and configuration.
+
 . After **git init**, your folder becomes a local repository (a Git project).
 
 
-## 1. What does it do?
+### 1. What does it do?
 The **git init** command is what turns a regular, boring folder on your computer into a special Git project folder (a local repository).
+
     . Think of it like: Pressing the "Start Tracking" button for a project.
 
-## 2. The **.git** Folder (The Magic Box) 
+### 2. The **.git** Folder (The Magic Box) 
 When you run **git init**, Git creates a small, hidden folder named .git. This is the most important part!
+
     . This .git folder is where Git keeps all the necessary information to track changes—the entire history of your work is stored here.
+    
    . If you accidentally delete this .git folder, your project is still there, but Git will forget all the history you saved!
 
 ### 3. How to use it:
