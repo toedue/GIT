@@ -138,3 +138,29 @@ The repo holds everything needed for your project:
     . Remote Repo: This is the copy that is online, usually on a service like GitHub. This is used for backup and for sharing with your team.
 
     . Analogy: The Local Repo is your messy desk at home where you do the work. The Remote Repo is the clean, organized filing cabinet at the office that everyone shares.
+
+
+
+
+# git status
+. git status is a Git command you type.
+When you type git status, Git quickly looks at your entire project folder and checks to see if anything has changed since the last time you made a commit (your last save).
+
+. It tells you the current state (status) of your project folder (repo).
+
+. It answers the question: "What is different right now?"
+
+. It shows:
+
+    . If you have new files.
+
+    . If you have changed files.
+
+    . If files are ready to be saved (committed).
+
+## What information does it give you?
+
+File Group || What it means || What Git says
+Untracked || These are new files that Git doesn't know about yet.|| """Untracked files:"""
+Modified,These are files you have changed since your last save (commit).,"""Changes not staged for commit:"""
+Staged,These are files you have chosen and marked as ready for the next save.,"""Changes to be committed:"""
