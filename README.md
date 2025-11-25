@@ -507,11 +507,12 @@ Every save (commit) in Git needs a short note explaining what you did. This note
 * **Note:** The name `.gitkeep` is just a **tradition**; it has no special meaning to Git itself. You could name the file `.placeholder` or `.keep` and it would work the same way.
 
 
-
+---
 
 # Branches
 
 ---
+![Alt text](https://github.com/toedue/GIT/blob/main/brances.png)
 
 ### 1. What is a Branch?
 
