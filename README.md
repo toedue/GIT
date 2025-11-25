@@ -440,3 +440,27 @@ Every save (commit) in Git needs a short note explaining what you did. This note
 * **Safety (Isolation):** Branches keep new, risky, or unfinished work separate from the safe, working code on the `main` branch.
 * **Parallelism:** Multiple developers can work on different tasks at the same time, each on their own branch, guaranteeing that one person's broken code won't stop the rest of the team.
 * **Review:** When work is done, the team can review the changes on the branch before they are safely brought back into the main project's timeline (a process called **merging**).
+
+
+
+
+# `git log` (Viewing History) 
+
+* **Command:** `git log`
+* **Show me the full history of my project saves (commits).**
+* **What it Does:**
+    * It prints a list of all the **commits** that have ever happened in the current branch's history.
+    * It lets you look "backward in time" through your project.
+* **What you see in the log:**
+    1.  **Commit ID (SHA):** A long, unique number (like `c3b9b4f...`) that is the commit's fingerprint.
+    2.  **HEAD/Branch Name:** Tells you where you and your branch pointers are.
+    3.  **Author:** The name and email of the person who made the commit (`git config` info).
+    4.  **Date:** When the commit was made.
+    5.  **Commit Message:** The explanation you wrote using `-m "..."`.
+
+### Useful Variations
+
+| Command | Simple Explanation | What it Shows |
+| :--- | :--- | :--- |
+| `git log --oneline` | **Show me the quick version.** | Prints each commit on a single line (just the short ID and the message). |
+| `git log -p` | **Show me the full changes.** | Prints the history **and** the exact lines of code that were added or removed in each commit. |
