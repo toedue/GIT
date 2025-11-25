@@ -543,3 +543,46 @@ Every save (commit) in Git needs a short note explaining what you did. This note
     * Example: Taking all the code from your completed `feature/login-page` branch and bringing it into the `main` branch.
 * **Merge Commit:** When you merge, Git often creates a **special new commit** called a **Merge Commit**.
     * This commit has **two ancestor commits** (the last commit on the feature branch AND the last commit on the main branch). It acts as a **record** showing that the two timelines were successfully joined.
+
+
+# Creating and Switching Branches (Checkout vs. Switch) 
+
+---
+
+### 1. The Goal: Creating and Moving to a New Branch
+
+The standard process to start working on a new feature safely is a two-step action:
+
+1.  **First, make sure you are on the safe, stable branch** (usually `main` or `master`).
+    * **Command:** `git switch main`
+2.  **Second, create a new branch and move your HEAD pointer to it.**
+
+---
+
+### 2. The Old Command: `git checkout` 
+
+* **Command:** `git checkout <branch-name>`
+* ** A powerful, but **older** command used for many actions (moving between branches, undoing changes, restoring files).
+* **Creating & Switching (Combined):**
+    * `git checkout -b feature1`
+    * **What it does:** The **`-b`** flag tells Git: "**b**uild a new branch named `feature1` **AND** immediately switch to it."
+
+### 3. The New Command: `git switch` 
+
+* **Command:** `git switch <branch-name>`
+* A **newer** command introduced to be **safer and clearer** for only one job: **moving between branches.**
+* **Creating & Switching (Combined):**
+    * `git switch -c feature1`
+    * **What it does:** The **`-c`** flag (for "**c**reate") tells Git: "**c**reate a new branch named `feature1` **AND** immediately switch to it."
+
+---
+
+### 4. The Difference Between `switch` and `checkout` 
+
+| Feature | `git checkout` (Older) | `git switch` (Newer) |
+| :--- | :--- | :--- |
+| **Purpose** | **Multi-purpose** (used for switching branches, restoring files, and undoing history). | **Single-purpose** (only used for safely switching between branches). |
+| **Safety** | **Less Safe:** Easy to accidentally overwrite or detach your HEAD pointer because it does too many things. | **Safer:** It prevents you from doing common mistakes related to accidentally losing work when switching. |
+| **Best Practice** | Use mainly for **restoring files** (`git checkout -- <file>`). | Use for **all branch switching** (`git switch <branch>`). |
+
+* The Git community created `git switch` and `git restore` (another new command) to split the many jobs of `git checkout` into clearer, safer commands. **For creating and moving branches, `git switch` is now the preferred method.**
