@@ -712,3 +712,41 @@ Imagine your `feature` branch split from `main` three commits ago, but `main` ha
 2.  **Merge:** `git switch main` then `git merge feature-branch` (Performs a Fast-Forward merge).
 
 ![Alt text](https://github.com/toedue/GIT/blob/main/rebase.png)
+
+
+
+# Git History Tools: `reflog` and `reset`
+
+---
+
+### 1. `git reflog` (The Safety Net/Journal) 
+
+* **Command:** `git reflog`
+* **A local journal of every single thing your HEAD has ever pointed to.**
+* **What it is:** The **Reference Log** (`reflog`) tracks every time you moved or changed your **HEAD** pointer. This includes commits, checkouts, merges, and even rebases.
+* **Why it's important:** If you accidentally use `git reset` or `git rebase` and think you've lost commits, the `git reflog` shows you exactly where your commits used to be, giving you a chance to **recover them**.
+* The `reflog` only exists on your **local computer** and is your ultimate safety net for undoing mistakes.
+
+---
+
+### 2. `git reset` (The Undo Button) 
+
+* **Command:** `git reset <commit-ID>`
+* **To undo commits or unstage files by moving your branch pointer.**
+* It moves your current branch pointer (and therefore your **HEAD** pointer) backward to a specific commit ID you choose.
+
+### The Three Modes of `git reset` 
+
+The `git reset` command is powerful because it works at three levels. The three flags determine how much it "undoes" in your project:
+
+| Flag | Effect on **History** (Branch Pointer) | Effect on **Staged** Files | Effect on **Working** Files |
+| :--- | :--- | :--- | :--- |
+| **`--soft`** | Moves back to the target commit. | **Keeps** files staged. | **Keeps** files changed. |
+| **`--mixed`** (Default) | Moves back to the target commit. | **Unstages** files. | **Keeps** files changed. |
+| **`--hard`** | Moves back to the target commit. | **Unstages** files. | **DELETES** all local changes (use with extreme caution). |
+
+### 3. Commit History
+
+* The permanent, saved chain of snapshots (Commits) in the `.git` directory.
+* **How to see it:** You view the commit history using the `git log` command.
+* **Relationship to `reset`:** When you use `git reset`, you are not deleting the old commits from the history right away; you are just telling your **branch pointer** to ignore them. The old commits still exist and can be found using **`git reflog`**.
