@@ -586,3 +586,40 @@ The standard process to start working on a new feature safely is a two-step acti
 | **Best Practice** | Use mainly for **restoring files** (`git checkout -- <file>`). | Use for **all branch switching** (`git switch <branch>`). |
 
 * The Git community created `git switch` and `git restore` (another new command) to split the many jobs of `git checkout` into clearer, safer commands. **For creating and moving branches, `git switch` is now the preferred method.**
+
+
+
+
+# Git Merge 
+
+---
+
+### 1. What is Merge?
+
+* Merge is the action of **combining** the history and changes from one branch (the source) into another branch (the target).
+* **Goal:** To take finished work from a safe **feature branch** and update the stable **main branch** with those changes.
+
+### 2. The Merging Steps
+
+Before merging, you always follow a simple rule: **You merge FROM the finished branch INTO the branch you want to update.**
+
+1.  **Go to the Target Branch:** First, you must switch your **HEAD** (your current location) to the branch that will *receive* the changes (usually `main`).
+    * **Command:** `git switch main`
+2.  **Run the Merge Command:** You then run the merge command, telling Git which branch to *bring in*.
+    * **Command:** `git merge feature-branch-name`
+    * **Result:** All changes from `feature-branch-name` are added to the `main` branch.
+
+### 3. The Merge Commit
+
+* A **Merge Commit** is a **special save** created when Git joins two timelines that have diverged (moved apart).
+* Unlike a regular commit (which has one parent/ancestor), a Merge Commit has **two parents**—one from each of the branches being joined.
+* It acts as a permanent record showing exactly *when* the two lines of development were brought back together.
+
+### 4. Types of Merges 
+
+Git handles merges in two primary ways, depending on the history of the branches:
+
+| Type of Merge | Explanation | When it Happens | Result |
+| :--- | :--- | :--- | :--- |
+| **Fast-Forward Merge** | **Simple, straight-line merge.** | Happens when the target branch (`main`) has **not changed** since the feature branch split off. The history is still a straight line. | Git simply moves the target branch's pointer forward to the feature branch's latest commit. **No Merge Commit is created.** |
+| **Non-Fast-Forward Merge** | **Creating a Merge Commit.** | Happens when **both branches have new commits** since they split. Their histories have diverged (moved apart). | Git must create a **Merge Commit** to formally join the two separate timelines and resolve any potential conflicts. |
