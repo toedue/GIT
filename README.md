@@ -678,3 +678,37 @@ When a conflict happens, you must manually edit the file to fix it:
 
 
 ![Alt text](https://github.com/toedue/GIT/blob/main/merge_conflict.avif)
+
+
+
+# `git rebase`
+
+---
+
+### 1. What is Rebase?
+
+*  Rebase is a way to **move** your branch to a different starting point. It **rewrites the project history** by moving your branch's commits and placing them one-by-one *after* the latest commit of the target branch.
+* **Goal:** To keep the project's history **clean and linear** (a straight line) by avoiding the extra "Merge Commit" that a standard merge creates.
+* **Warning:** Rebasing **rewrites history**. You should almost never rebase a branch that has already been pushed (shared) with others.
+
+### 2. The Rebase Process
+
+Imagine your `feature` branch split from `main` three commits ago, but `main` has two new commits since then.
+
+1.  **Standard Merge:** Joins the two separate timelines and creates a special Merge Commit. (History is messy).
+2.  **Rebase:**
+    * Git **copies** your `feature` branch's commits.
+    * Git **removes** the original commits.
+    * Git **re-applies** your copied commits on top of the latest commit on `main`. (History is clean).
+
+### 3. Rebase and Fast-Forward (FF) Merge 
+
+* **The Result:** After you successfully rebase your `feature` branch onto `main`, the `feature` branch is now **ahead** of `main` by all of its commits. The timeline is now perfectly straight.
+* **The Merge:** If you then run `git switch main` and `git merge feature-branch`, Git sees that the `main` branch can simply move its pointer forward to the `feature` branch's latest commit.
+* Because the history is linear and `main` is an ancestor of the `feature` branch, the merge becomes a **Fast-Forward Merge**, and **no extra Merge Commit is created!**
+
+**Steps to achieve a clean FF merge:**
+1.  **Rebase:** `git switch feature-branch` then `git rebase main` (Moves `feature` on top of `main`).
+2.  **Merge:** `git switch main` then `git merge feature-branch` (Performs a Fast-Forward merge).
+
+![Alt text](https://github.com/toedue/GIT/blob/main/rebase.png)
