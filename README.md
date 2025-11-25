@@ -512,7 +512,7 @@ Every save (commit) in Git needs a short note explaining what you did. This note
 # Branches
 
 ---
-![Alt text](https://github.com/toedue/GIT/blob/main/brances.png)
+![Alt text](https://github.com/toedue/GIT/blob/main/branches.png)
 
 ### 1. What is a Branch?
 
@@ -616,6 +616,7 @@ Before merging, you always follow a simple rule: **You merge FROM the finished b
 * It acts as a permanent record showing exactly *when* the two lines of development were brought back together.
 
 ### 4. Types of Merges 
+![Alt text](https://github.com/toedue/GIT/blob/main/ff_merge.png)
 
 Git handles merges in two primary ways, depending on the history of the branches:
 
@@ -623,3 +624,5 @@ Git handles merges in two primary ways, depending on the history of the branches
 | :--- | :--- | :--- | :--- |
 | **Fast-Forward Merge** | **Simple, straight-line merge.** | Happens when the target branch (`main`) has **not changed** since the feature branch split off. The history is still a straight line. | Git simply moves the target branch's pointer forward to the feature branch's latest commit. **No Merge Commit is created.** |
 | **Non-Fast-Forward Merge** | **Creating a Merge Commit.** | Happens when **both branches have new commits** since they split. Their histories have diverged (moved apart). | Git must create a **Merge Commit** to formally join the two separate timelines and resolve any potential conflicts. |
+
+![Alt text](https://github.com/toedue/GIT/blob/main/merges.png)
