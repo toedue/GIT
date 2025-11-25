@@ -626,3 +626,64 @@ Git handles merges in two primary ways, depending on the history of the branches
 | **Non-Fast-Forward Merge** | **Creating a Merge Commit.** | Happens when **both branches have new commits** since they split. Their histories have diverged (moved apart). | Git must create a **Merge Commit** to formally join the two separate timelines and resolve any potential conflicts. |
 
 ![Alt text](https://github.com/toedue/GIT/blob/main/merges.png)
+
+
+
+
+
+# Merge Conflicts 
+
+---
+
+### 1. What is a Merge Conflict?
+
+* A merge conflict occurs when two branches being joined have **changed the exact same lines of code** in the same file.
+* **Problem:** Git stops the merge because it doesn't know *which* change you want to keep. It asks for your **manual help** (resolution).
+* **Result:** The file is marked with special conflict indicators (e.g., `<<<<<<<`, `=======`, `>>>>>>>`).
+
+---
+
+### 2. Resolving the Conflict (Choosing the Code)
+
+When a conflict happens, you must manually edit the file to fix it:
+
+1.  **Locate Markers:** Open the conflicted file and find the markers that separate the two versions:
+
+    ```
+    <<<<<<< HEAD (or your current branch, like 'main')
+    This is the change on the branch you are currently on.
+    =======
+    This is the change on the branch you are merging from.
+    >>>>>>> feature-branch-name
+    ```
+
+2.  **Choose the Code:** You must **delete the markers** (`<<<<<<<`, `=======`, `>>>>>>>`) and the code you *don't* want to keep.
+    * **Choose the current branch's code.**
+    * **Choose the incoming branch's code.**
+    * **Choose both/Write New Code.** (Keep the parts you need from both sections and remove all markers).
+
+3.  **Finish the Merge:** Once the file is clean (all markers are gone):
+    * `git add <conflicted-file>` (Stage the file to show it's resolved).
+    * `git commit` (This completes the merge, creating a merge commit).
+
+---
+
+### 3. Aborting the Merge (The Undo Button)
+
+* **Command:** `git merge --abort`
+* **Stop the entire merge process and go back to the state before you ran the `git merge` command.**
+* **When to Use:** If you see too many complex conflicts and decide you need to fix the branches separately first, this command cleans up the mess and lets you restart.
+
+---
+
+### 4. Types of Merges (When Conflicts Happen) 🧬
+
+Conflicts only happen when the histories of the two branches have **diverged** (moved apart), which triggers a **Non-Fast-Forward Merge**.
+
+| Type of Merge | Simple Explanation | When it Happens | Conflict Potential |
+| :--- | :--- | :--- | :--- |
+| **Fast-Forward Merge** | **Simple, straight-line join.** | The target branch (`main`) has **not changed** since the feature branch split off. | **No Conflict:** Git just moves the pointer forward. |
+| **Non-Fast-Forward Merge** | **Creating a Merge Commit.** | **Both branches have new commits** since they split. Their timelines have diverged. | **High Conflict:** Git must combine two different sets of changes, which can lead to conflicts. |
+
+
+![Alt text](https://github.com/toedue/GIT/blob/main/merge_conflict.avif)
