@@ -407,3 +407,16 @@ Every save (commit) in Git needs a short note explaining what you did. This note
 ### How to Check the State
 
 * You use the **`git status`** command to see which of the three main states all of your files are in.
+
+
+# `HEAD` (The Current Position)
+
+* `HEAD` is a **pointer** or a **label** that always points to the **last commit** (save) in your current **branch**.
+* It tells Git **where you are working** and **what the contents of your current files should be**.
+* Think of `HEAD` as the **cursor** or the **"play button"** on your project's timeline. It marks the spot you are currently looking at and building upon.
+* When you make a new commit, `HEAD` automatically moves forward to point to that new commit.
+* Most of the time, `HEAD` points to the **tip** (latest commit) of your current branch (e.g., `main`).
+
+### Detached HEAD
+
+* Sometimes, if you "time-travel" back to an old commit without using a branch, Git might say you are in a "**detached HEAD**" state. This just means your `HEAD` is pointing directly at a past commit instead of pointing at a branch name.
