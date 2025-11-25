@@ -676,14 +676,5 @@ When a conflict happens, you must manually edit the file to fix it:
 
 ---
 
-### 4. Types of Merges (When Conflicts Happen) 🧬
-
-Conflicts only happen when the histories of the two branches have **diverged** (moved apart), which triggers a **Non-Fast-Forward Merge**.
-
-| Type of Merge | Simple Explanation | When it Happens | Conflict Potential |
-| :--- | :--- | :--- | :--- |
-| **Fast-Forward Merge** | **Simple, straight-line join.** | The target branch (`main`) has **not changed** since the feature branch split off. | **No Conflict:** Git just moves the pointer forward. |
-| **Non-Fast-Forward Merge** | **Creating a Merge Commit.** | **Both branches have new commits** since they split. Their timelines have diverged. | **High Conflict:** Git must combine two different sets of changes, which can lead to conflicts. |
-
 
 ![Alt text](https://github.com/toedue/GIT/blob/main/merge_conflict.avif)
