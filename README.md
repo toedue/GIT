@@ -816,3 +816,42 @@ The `git diff` command is used to compare files in the different stages of your 
 
 ![Alt text](https://github.com/toedue/GIT/blob/main/cherry_pick.png)
 ![Alt text](https://github.com/toedue/GIT/blob/main/cherry_pick2.png)
+
+
+
+
+
+# `git stash` (Temporary Storage)
+
+---
+
+### 1. What is Git Stash?
+
+* **A temporary storage location** for unfinished work.
+* **Goal:** To quickly save your current, uncommitted changes (both **Staged** and **Unstaged**) and clean up your **Working Area** so you can switch branches or handle an urgent fix without committing incomplete code.
+* **Result:** The changes are saved in a **stash stack** (a list of temporary saves) and your files go back to the state of your last commit.
+
+### 2. Adding Stashes (Saving Work)
+
+| Command | Simple Explanation | What it Does |
+| :--- | :--- | :--- |
+| `git stash push` | **Save the changes and clear the folder.** | Saves all your modified files and your Staging Area, then resets your folder to the last commit. |
+| `git stash push -m "Message"` | **Save with a message.** | Saves the work and lets you add a helpful name (message) so you can remember what the stash contains. |
+| `git stash list` | **See all your saved stashes.** | Shows you the **stash stack**, listing each temporary save with an index (e.g., `stash@{0}`, `stash@{1}`). |
+
+### 3. Stash Stack (The List of Saves)
+
+* The **Stash Stack** is a simple **list** of all the temporary saves you've made.
+* The most recent stash is always at the top, called **`stash@{0}`**. The one before that is **`stash@{1}`**, and so on.
+
+### 4. Retrieving and Removing Stashes
+
+| Command | Simple Explanation | What it Does |
+| :--- | :--- | :--- |
+| `git stash apply` | **Use the changes but keep the save.** | Takes the changes from the **most recent stash** (`stash@{0}`) and puts them back into your Working Area. The stash **remains** in the stack. |
+| `git stash pop` | **Use the changes and delete the save.** | Takes the changes from the **most recent stash** (`stash@{0}`) and puts them back into your Working Area, and then **immediately removes** that stash from the stack. (This is most common). |
+| `git stash apply stash@{N}` | **Use an older save.** | Applies the changes from a specific older stash (e.g., `stash@{2}`) and keeps the stash in the list. |
+| `git stash drop` | **Delete the most recent save.** | **Removes** the most recent stash (`stash@{0}`) from the stack **without applying** its changes. |
+| `git stash clear` | **Delete all saved stashes.** | **Removes every single stash** from the stack permanently. |
+
+**In short:** Use **`pop`** when you're done with the save, and use **`apply`** if you think you might need the same changes later or on another branch.
