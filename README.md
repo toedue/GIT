@@ -750,3 +750,5 @@ The `git reset` command is powerful because it works at three levels. The three 
 * The permanent, saved chain of snapshots (Commits) in the `.git` directory.
 * **How to see it:** You view the commit history using the `git log` command.
 * **Relationship to `reset`:** When you use `git reset`, you are not deleting the old commits from the history right away; you are just telling your **branch pointer** to ignore them. The old commits still exist and can be found using **`git reflog`**.
+
+![Alt text](https://github.com/toedue/GIT/blob/main/reset.webp)
