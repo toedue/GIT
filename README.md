@@ -777,3 +777,28 @@ The `git diff` command is used to compare files in the different stages of your 
 
 * **Review:** It lets you review your work before committing, acting as a final check to make sure you're not saving any unnecessary or accidental changes.
 * **Debugging:** It helps you quickly pinpoint exactly what changed between two versions when you are tracking down a bug.
+
+
+
+
+# `git cherry-pick` (Selective Copying) 🍒
+
+* **Command:** `git cherry-pick <commit-ID>`
+* **Copy one specific commit (save) from one branch and paste it onto the branch you're currently on.**
+* **Goal:** To take only a single, necessary fix or change from another branch's history **without merging the entire branch** into yours.
+
+### How it Works
+
+1.  **Identify:** You first use `git log` or `git reflog` to find the unique **Commit ID** of the single save you want to copy.
+2.  **Move:** You switch to the branch where you want the fix to appear (e.g., `git switch main`).
+3.  **Copy:** You run `git cherry-pick <commit-ID>`.
+    * Git then **re-applies** the exact changes from that single commit onto your current branch, making a **brand-new commit**.
+
+### Why Use Cherry-Pick?
+
+* It's perfect for quickly pulling a critical **bug fix** from a feature branch into the stable `main` branch immediately, instead of waiting to merge the entire, unfinished feature.
+* **Avoid Bloat:** It keeps your target branch's history clean by only importing the one required change, avoiding all the other commits on the source branch.
+* **New Commit ID:** Because the commit is applied to a different place in the history, the resulting commit will have a **new Commit ID** (SHA).
+
+![Alt text](https://github.com/toedue/GIT/blob/main/cherry_pick.png)
+![Alt text](https://github.com/toedue/GIT/blob/main/cherry_pick2.png)
