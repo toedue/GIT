@@ -780,25 +780,39 @@ The `git diff` command is used to compare files in the different stages of your 
 
 
 
+# `git cherry-pick` (Moving a Single Save) 🍒
 
-# `git cherry-pick` (Selective Copying) 🍒
+---
+
+### 1. What is Cherry-Pick?
 
 * **Command:** `git cherry-pick <commit-ID>`
-* **Copy one specific commit (save) from one branch and paste it onto the branch you're currently on.**
-* **Goal:** To take only a single, necessary fix or change from another branch's history **without merging the entire branch** into yours.
+* **Take one specific commit (save) from one branch and apply its changes directly to another branch.**
+* **Goal:** To transfer a single, small change (like a crucial bug fix) without bringing over all the other unfinished commits on the source branch.
+* **Result:** Git copies the changes from the chosen commit and creates a **brand new commit** on your current branch. (The original commit remains where it was).
 
-### How it Works
+### 2. How to Cherry-Pick (The Steps)
 
-1.  **Identify:** You first use `git log` or `git reflog` to find the unique **Commit ID** of the single save you want to copy.
-2.  **Move:** You switch to the branch where you want the fix to appear (e.g., `git switch main`).
-3.  **Copy:** You run `git cherry-pick <commit-ID>`.
-    * Git then **re-applies** the exact changes from that single commit onto your current branch, making a **brand-new commit**.
+1.  **Find the Commit ID:** Use `git log` or `git log --oneline` to find the unique ID (SHA) of the commit you want to copy.
+2.  **Go to Target Branch:** Switch to the branch where you want the change to land (e.g., `main`).
+    * `git switch main`
+3.  **Cherry-Pick:** Run the command with the ID.
+    * `git cherry-pick c3b9b4f`
 
-### Why Use Cherry-Pick?
+### 3. Multiple Cherry-Picks and Maintaining Order
 
-* It's perfect for quickly pulling a critical **bug fix** from a feature branch into the stable `main` branch immediately, instead of waiting to merge the entire, unfinished feature.
-* **Avoid Bloat:** It keeps your target branch's history clean by only importing the one required change, avoiding all the other commits on the source branch.
-* **New Commit ID:** Because the commit is applied to a different place in the history, the resulting commit will have a **new Commit ID** (SHA).
+* **Multiple Commits:** You can cherry-pick multiple commits at once by listing their IDs in the order you want them applied.
+    * `git cherry-pick <ID1> <ID2> <ID3>`
+* **Maintaining Order:** Git will apply the commits **in the order you list them**. If the commits depend on each other (e.g., ID1 sets up the code that ID2 modifies), you must list them in the correct sequential order to avoid conflicts.
+* **Conflicts:** Cherry-picking can cause **conflicts** if the changes in the single commit you're picking clash with the code on the target branch. You must resolve these conflicts manually, just like in a merge.
+
+### 4. Cherry-Pick vs. Merge
+
+| Action | `git cherry-pick` | `git merge` |
+| :--- | :--- | :--- |
+| **What is moved?** | **Only the single, chosen commit.** | **All commits** from one branch to another. |
+| **History** | Creates a **new** commit ID. | Joins the timelines (often with a Merge Commit). |
+| **Best For** | Moving one bug fix or hotfix. | Combining entire finished features. |
 
 ![Alt text](https://github.com/toedue/GIT/blob/main/cherry_pick.png)
 ![Alt text](https://github.com/toedue/GIT/blob/main/cherry_pick2.png)
