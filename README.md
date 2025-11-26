@@ -752,3 +752,28 @@ The `git reset` command is powerful because it works at three levels. The three 
 * **Relationship to `reset`:** When you use `git reset`, you are not deleting the old commits from the history right away; you are just telling your **branch pointer** to ignore them. The old commits still exist and can be found using **`git reflog`**.
 
 ![Alt text](https://github.com/toedue/GIT/blob/main/reset.webp)
+
+
+
+
+# `git diff` (Seeing Changes) 
+
+* **Command:** `git diff`
+* **Show me the line-by-line differences between two points in my project.**
+* It compares two versions of your code and displays exactly which lines were **added** (shown with a `+`) and which lines were **removed** (shown with a `-`).
+
+### Common Ways to Use `git diff`
+
+The `git diff` command is used to compare files in the different stages of your project.
+
+| Command | Comparison | Simple Question |
+| :--- | :--- | :--- |
+| `git diff` | **Working Area** vs. **Staging Area** | **"What changes did I make that I haven't added yet?"** (What is NOT staged?) |
+| `git diff --staged` | **Staging Area** vs. **Last Commit** | **"What changes are ready to be saved?"** (What IS staged?) |
+| `git diff HEAD` | **Working Area** vs. **Last Commit** | **"What have I changed in total since my last commit?"** |
+| `git diff <branch1> <branch2>` | **Two Branches** | **"What's different between these two timelines?"** |
+
+### Why it's Important
+
+* **Review:** It lets you review your work before committing, acting as a final check to make sure you're not saving any unnecessary or accidental changes.
+* **Debugging:** It helps you quickly pinpoint exactly what changed between two versions when you are tracking down a bug.
