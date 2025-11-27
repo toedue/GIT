@@ -889,7 +889,7 @@ The `git diff` command is used to compare files in the different stages of your 
 ###  `git clone` (Download the Entire Project)
 
 * **Command:** `git clone <URL>`
-* **SIdea:** **Download a remote project and set it up as a local repo.**
+* **Idea:** **Download a remote project and set it up as a local repo.**
 * **What it does:**
     1.  It downloads the entire project and its full history from the remote URL.
     2.  It automatically names the remote connection **`origin`**.
