@@ -946,5 +946,31 @@ The `git diff` command is used to compare files in the different stages of your 
 | **`git pull`** | Remote $\to$ Local | Get the latest changes from the team. | **`fetch`** (download) $\implies$ **`merge`** (combine). |
 
 
+#  `git push` (Sending Local Saves to Remote) 
 
+* **Command:** `git push <remote-name> <branch-name>`
+* **Most Common Use:** `git push origin main`
+* **Idea:** **Take all the new commits (saves) you've made locally and send them to the online copy of your project.**
+
+### What it Does
+
+1.  **Check for New Commits:** Git compares your local branch history with the remote branch history.
+2.  **Uploads:** It uploads any local commits that are missing from the remote repository.
+3.  **Updates Remote Pointer:** Once uploaded, the remote branch's pointer is moved forward to match your latest local commit.
+
+### Initial Push (Setting Upstream) 🔗
+
+The very first time you push a new branch from your computer to the remote, you need to tell Git which specific remote branch it should connect to forever:
+
+* **Command:** `git push -u origin main` (or the name of your new branch)
+* **The `-u` Flag:** This stands for "**set upstream**." It tells Git: "Connect this local branch (`main`) to this specific remote branch on **`origin`** so I don't have to type the names every time."
+* **After using `-u` once**, all future pushes for that branch can be the simple: `git push`
+
+### Common Push Scenarios
+
+| Command | Simple Explanation | When to Use |
+| :--- | :--- | :--- |
+| `git push` | Push to the connected remote branch. | After you've set the upstream (`-u`) and have new commits to share. |
+| `git push --force` | Overwrite the remote history completely. | **Danger!** Use only if you are absolutely sure, as it can delete other people's work on the remote. |
+| `git push origin --delete <branch>` | Delete a branch on the remote. | After you are done with a feature branch and have merged it, use this to remove the remote copy. |
 
